@@ -1,0 +1,27 @@
+{# ผลลัพธ์ที่ HTMX เอาไปวางใน #result  [ผู้รับผิดชอบ: คนที่ 6] #}
+<div class="result" x-data="{ copied: false }">
+
+  <div class="summary">
+    {% if result.total %}
+      <strong>เจอข้อมูลส่วนบุคคล {{ result.total }} จุด</strong>
+      <ul class="summary-list">
+        {% for rule, count in result.summary.items %}
+          <li class="chip" data-rule="{{ rule }}">{{ rule }} × {{ count }}</li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <strong>ไม่พบข้อมูลส่วนบุคคล</strong>
+      {# ตอนนี้กฎยังเป็น stub อยู่ จึงยังไม่เจออะไร — เป็นเรื่องปกติ #}
+    {% endif %}
+  </div>
+
+  <pre class="masked-text" x-ref="masked">{% for seg in segments %}{% if seg.rule %}<mark class="hl" data-rule="{{ seg.rule }}" title="{{ seg.label }}">{{ seg.text }}</mark>{% else %}{{ seg.text }}{% endif %}{% endfor %}</pre>
+
+  <button type="button" class="btn btn-copy"
+          @click="navigator.clipboard.writeText($refs.masked.innerText); copied = true; setTimeout(() => copied = false, 1500)">
+    <span x-show="!copied">คัดลอกผลลัพธ์</span>
+    <span x-show="copied" x-cloak>คัดลอกแล้ว</span>
+  </button>
+
+  {% comment %} TODO(คนที่ 6): ทำตารางรายละเอียด detection (original -> masked) แบบพับเก็บได้ {% endcomment %}
+</div>

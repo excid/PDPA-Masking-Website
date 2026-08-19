@@ -1,0 +1,59 @@
+{% extends "masking/base.html" %}
+
+{% comment %}
+หน้าเว็บหลัก  [ผู้รับผิดชอบ: คนที่ 6 / Frontend]
+
+TODO(คนที่ 6):
+  [ ] จัด layout สองคอลัมน์ (input | output) และทำให้ responsive บนมือถือ
+  [ ] ปุ่ม copy ผลลัพธ์ (Alpine: navigator.clipboard.writeText)
+  [ ] legend สีของแต่ละกฎ
+  [ ] loading indicator ระหว่างรอ HTMX (ใช้ class .htmx-indicator)
+{% endcomment %}
+
+{% block content %}
+<div class="layout" x-data="maskApp()">
+
+  <section class="panel panel-input">
+    <h2>ข้อความต้นฉบับ</h2>
+
+    {# hx-post ยิงไป /mask/ แล้วเอา HTML ที่ได้ไปแทนใน #result #}
+    <form hx-post="{% url 'masking:mask_partial' %}"
+          hx-target="#result"
+          hx-swap="innerHTML"
+          hx-indicator="#spinner">
+
+      <div id="input-area">
+        {% include "masking/partials/_input.html" %}
+      </div>
+
+      <fieldset class="rules">
+        <legend>กฎที่เปิดใช้</legend>
+        {% for rule in rules %}
+          <label class="rule-toggle" data-rule="{{ rule.name }}">
+            <input type="checkbox" name="rules" value="{{ rule.name }}" checked>
+            <span>{{ rule.label }}</span>
+            <small>{{ rule.description }}</small>
+          </label>
+        {% endfor %}
+      </fieldset>
+
+      <div class="actions">
+        <button type="submit" class="btn btn-primary">Mask ข้อมูล</button>
+        <button type="button" class="btn"
+                hx-get="{% url 'masking:load_sample' %}"
+                hx-target="#input-area"
+                hx-swap="innerHTML">โหลดตัวอย่าง log</button>
+        <span id="spinner" class="htmx-indicator">กำลังประมวลผล…</span>
+      </div>
+    </form>
+  </section>
+
+  <section class="panel panel-output">
+    <h2>ผลลัพธ์</h2>
+    <div id="result" aria-live="polite">
+      <p class="placeholder">ยังไม่มีผลลัพธ์ — วางข้อความแล้วกดปุ่ม Mask ข้อมูล</p>
+    </div>
+  </section>
+
+</div>
+{% endblock %}

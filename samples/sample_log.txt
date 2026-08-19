@@ -1,0 +1,8 @@
+2024-08-15 10:22:01 INFO  [auth] login success user=somchai@example.com ip=203.0.113.44
+2024-08-15 10:22:07 INFO  [profile] update DOB: 15/08/2540 tel: 081-234-5678
+2024-08-15 10:23:12 INFO  [checkout] card=4111-1111-1111-1234 amount=1,290.00 THB
+2024-08-15 10:23:15 INFO  [shipping] Address: 689/12 ซอยสุขุมวิท 71 แขวงพระโขนงเหนือ เขตวัฒนา กรุงเทพฯ 10110
+2024-08-15 10:24:03 WARN  [auth] login failed user=a.two@mail.co.th attempts=3
+2024-08-15 10:25:44 INFO  [support] ติดต่อกลับที่ 0899999999 หรือ b@x.com
+2024-08-15 10:26:10 INFO  [order] ref=12345678901234567890 status=paid
+2024-08-15 10:27:33 INFO  [profile] วันเกิด: 1997-08-15 ที่อยู่: 42 หมู่ 5 ถนนพหลโยธิน

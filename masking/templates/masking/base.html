@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}PDPA Masking{% endblock %}</title>
+
+  {# HTMX = ยิง request จาก HTML ตรง ๆ / Alpine = state เล็ก ๆ ฝั่ง client #}
+  {# TODO(คนที่ 7): ถ้า deploy แล้วเน็ตช้า ให้โหลดไฟล์มาไว้ใน static/vendor/ แทน CDN #}
+  <script src="https://unpkg.com/htmx.org@1.9.12" defer></script>
+  <script src="https://unpkg.com/alpinejs@3.14.1/dist/cdn.min.js" defer></script>
+
+  <link rel="stylesheet" href="{% static 'masking/css/app.css' %}">
+  {% block head %}{% endblock %}
+</head>
+{# ส่ง CSRF token ไปกับทุก request ของ HTMX #}
+<body hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
+  <header class="site-header">
+    <h1>PDPA Masking</h1>
+    <p class="tagline">ปิดบังข้อมูลส่วนบุคคลในข้อความ/log ด้วย Regular Expression</p>
+    <a class="gh-link" href="{{ github_url }}" target="_blank" rel="noopener">ซอร์สโค้ดบน GitHub</a>
+  </header>
+
+  <main>{% block content %}{% endblock %}</main>
+
+  <footer class="site-footer">
+    <small>ข้อความที่ส่งเข้ามาไม่ถูกบันทึกลงฐานข้อมูล — ประมวลผลในหน่วยความจำแล้วทิ้งทันที</small>
+  </footer>
+
+  <script src="{% static 'masking/js/app.js' %}" defer></script>
+</body>
+</html>
