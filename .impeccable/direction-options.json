@@ -1,0 +1,73 @@
+{
+  "title": "Choose the visual world",
+  "question": "Choose how the PDPA masking demo should feel during the presentation.",
+  "options": [
+    {
+      "id": "assigned",
+      "label": "Microfilm Redaction Desk",
+      "kicker": "PROPOSED WORLD",
+      "lineage": "microfilm readers, document proofing, and archival redaction",
+      "thesis": "One continuous evidence strip changes from exposed personal data to safely redacted text.",
+      "palette": ["#11131A", "#E8ECE5", "#F05A3C", "#8FE0D0"],
+      "materials": ["smoked acetate", "registration ink", "matte metal", "optical light"],
+      "viewport": "A horizontal filmstrip dominates the workspace: source frame left, masked frame right, with five rule gates and one transport-style primary action.",
+      "risk": "Can feel archival if typography and interaction do not stay crisp and current.",
+      "sketch": ".impeccable/sketches/microfilm-redaction-desk.png"
+    },
+    {
+      "id": "challenger-ascii",
+      "label": "ASCII Privacy Console",
+      "kicker": "ALTERNATE",
+      "lineage": "live ASCII renderers and text-mode visualization",
+      "thesis": "Detection density turns raw log text into a living field of protected characters.",
+      "case": "Strong computer-science identity; weaker Thai readability than the proposed world.",
+      "palette": ["#050806", "#D6FF75", "#7F9E5E", "#F5F7ED"],
+      "materials": ["phosphor characters", "fixed glyph grid"],
+      "viewport": "The entire interface is one adaptive character grid with input, output, and rule status inside the same typographic field.",
+      "risk": "Thai glyphs and long logs can become tiring at presentation distance.",
+      "sketch": ".impeccable/sketches/ascii-privacy-console.png",
+      "hero": "https://impeccable.style/worlds/cards/medium-native-ascii-live-scene-render-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/medium-native-ascii-live-scene-render.webp"
+    },
+    {
+      "id": "challenger-anime",
+      "label": "Crisis Command Center",
+      "kicker": "ALTERNATE",
+      "lineage": "nineties mecha-anime crisis walls",
+      "thesis": "Each detected leak raises a visible condition before the system seals it.",
+      "case": "High presentation impact; weaker trust and calm for routine privacy work.",
+      "palette": ["#050505", "#FF8A2A", "#B7FF33", "#E62E2E"],
+      "materials": ["phosphor panels", "hazard bands", "ruled diagnostics"],
+      "viewport": "A central source-to-safe schematic anchors five framed rule readouts and one monumental detection counter.",
+      "risk": "Alarm language may overpower the actual masking task.",
+      "sketch": ".impeccable/sketches/crisis-command-center.png",
+      "hero": "https://impeccable.style/worlds/cards/pop-culture-shelf-anime-command-center-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/pop-culture-shelf-anime-command-center.webp"
+    },
+    {
+      "id": "challenger-sixpack",
+      "label": "Privacy Instrument Panel",
+      "kicker": "ALTERNATE",
+      "lineage": "night-flight instrument six-packs",
+      "thesis": "Five trusted instruments monitor each data rule while a sixth confirms total exposure.",
+      "case": "Excellent state scanning; weaker source-versus-output comparison.",
+      "palette": ["#080A0C", "#F0F3E9", "#8DFF92", "#FFB454"],
+      "materials": ["matte instrument glass", "luminous scales", "placard labels"],
+      "viewport": "Two rows of three rule instruments sit above a wide text comparison strip and a guarded action control.",
+      "risk": "Gauges can become decorative when counts are usually small.",
+      "sketch": ".impeccable/sketches/privacy-instrument-panel.png",
+      "hero": "https://impeccable.style/worlds/cards/signals-instruments-night-flight-six-pack-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/signals-instruments-night-flight-six-pack.webp"
+    }
+  ],
+  "reroll": true,
+  "canon": true,
+  "canonCard": {
+    "label": "Polished privacy dashboard",
+    "thesis": "A familiar two-panel masking tool, executed at presentation quality.",
+    "viewport": "Header, rule chips, source editor, masked output, and a clear primary action.",
+    "risk": "Clear and dependable, but less memorable than the authored worlds.",
+    "sketch": ".impeccable/sketches/canon-dashboard.png"
+  },
+  "steer": true
+}

@@ -1,3 +1,4 @@
-{# textarea อย่างเดียว แยกไฟล์ไว้เพื่อให้ปุ่ม "โหลดตัวอย่าง log" swap เฉพาะส่วนนี้ได้ #}
-<label for="id_text" class="sr-only">ข้อความต้นฉบับ</label>
-{{ form.text }}
+<div class="textarea-wrap" x-init="charCount = $el.querySelector('textarea')?.value.length || 0" @input="charCount = $event.target.value.length">
+  <label for="id_text" class="sr-only">ข้อความต้นฉบับ</label>
+  {{ form.text }}
+</div>

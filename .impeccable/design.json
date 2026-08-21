@@ -1,0 +1,154 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-21T00:00:00+07:00",
+  "title": "Design System: PDPA Masking",
+  "extensions": {
+    "colorMeta": {
+      "canvas": { "role": "neutral", "displayName": "Cool Canvas", "canonical": "#f4f7fa", "tonalRamp": ["#18202a", "#303b48", "#536171", "#788696", "#a0abb7", "#c3ccd5", "#e0e6ec", "#f4f7fa"] },
+      "surface": { "role": "neutral", "displayName": "Work Surface", "canonical": "#ffffff", "tonalRamp": ["#202122", "#3d3f41", "#626467", "#898b8e", "#b1b3b5", "#d1d2d3", "#ececed", "#ffffff"] },
+      "surface-soft": { "role": "neutral", "displayName": "Soft Surface", "canonical": "#f8fafc", "tonalRamp": ["#1c2228", "#35404a", "#596672", "#7f8b96", "#a6afb8", "#c8d0d7", "#e5e9ed", "#f8fafc"] },
+      "ink": { "role": "neutral", "displayName": "Compliance Navy", "canonical": "#122b50", "tonalRamp": ["#071323", "#122b50", "#244a78", "#466b96", "#708bad", "#9dacc2", "#c8d1dd", "#eef2f7"] },
+      "ink-strong": { "role": "neutral", "displayName": "Authority Navy", "canonical": "#0a2349", "tonalRamp": ["#061329", "#0a2349", "#173f70", "#3d628e", "#6c84aa", "#9ba8c1", "#c7d0de", "#edf1f6"] },
+      "muted": { "role": "neutral", "displayName": "Muted Slate", "canonical": "#5d6f89", "tonalRamp": ["#17202e", "#2c3a4e", "#46556c", "#5d6f89", "#8391a5", "#a9b3c1", "#cfd6df", "#f0f3f6"] },
+      "quiet": { "role": "neutral", "displayName": "Quiet Slate", "canonical": "#8794a8", "tonalRamp": ["#1d2430", "#354052", "#526075", "#6d7b90", "#8794a8", "#aab4c1", "#ccd3dc", "#eff2f5"] },
+      "line": { "role": "neutral", "displayName": "Fine Rule", "canonical": "#d8e0ea", "tonalRamp": ["#1b222b", "#35404c", "#566471", "#7b8997", "#a0acb8", "#bec8d2", "#d8e0ea", "#f2f5f8"] },
+      "line-strong": { "role": "neutral", "displayName": "Strong Rule", "canonical": "#c4cfdd", "tonalRamp": ["#19212a", "#323e4a", "#52616f", "#748493", "#98a6b4", "#b2beca", "#cfd7e1", "#f1f4f7"] },
+      "primary": { "role": "primary", "displayName": "Workbench Teal", "canonical": "#087f9d", "tonalRamp": ["#03242d", "#044453", "#066578", "#087f9d", "#2aa0b9", "#68becd", "#a9dce4", "#e6f6f8"] },
+      "primary-hover": { "role": "primary", "displayName": "Deep Action Teal", "canonical": "#066b86", "tonalRamp": ["#031f27", "#043b49", "#05596d", "#066b86", "#278ba1", "#64b5c3", "#a6d8df", "#e8f5f7"] },
+      "primary-soft": { "role": "primary", "displayName": "Teal Wash", "canonical": "#e6f6f8", "tonalRamp": ["#082a2e", "#164b50", "#377077", "#65959b", "#96babe", "#bed9dc", "#e6f6f8", "#f5fcfc"] },
+      "success": { "role": "secondary", "displayName": "Verified Green", "canonical": "#14956f", "tonalRamp": ["#05281f", "#0a4d3a", "#0f7255", "#14956f", "#42ae8d", "#7fc8af", "#b7e1d3", "#e8f8f2"] },
+      "success-soft": { "role": "secondary", "displayName": "Verified Wash", "canonical": "#e8f8f2", "tonalRamp": ["#092920", "#1b4c3e", "#3d7060", "#6c9888", "#9dc0b4", "#c3ded5", "#e8f8f2", "#f6fcfa"] },
+      "danger": { "role": "secondary", "displayName": "Alert Crimson", "canonical": "#c53d4d", "tonalRamp": ["#361014", "#672029", "#96303a", "#c53d4d", "#d96b77", "#e79aa2", "#f2c6ca", "#fff0f2"] },
+      "danger-soft": { "role": "secondary", "displayName": "Alert Wash", "canonical": "#fff0f2", "tonalRamp": ["#37181c", "#643137", "#92515a", "#ba7880", "#d8a4aa", "#ebc8cc", "#fff0f2", "#fff8f9"] },
+      "focus": { "role": "primary", "displayName": "Focus Blue", "canonical": "#1477d4", "tonalRamp": ["#061f38", "#0b3c6b", "#10599e", "#1477d4", "#4798e4", "#7bb7ed", "#b6d7f6", "#e9f4fd"] },
+      "credit-card": { "role": "tertiary", "displayName": "Category Blue", "canonical": "#1784d9", "tonalRamp": ["#06243a", "#0b4772", "#1169a9", "#1784d9", "#4ba2e4", "#82bfea", "#b9dcf4", "#e8f3ff"] },
+      "credit-card-soft": { "role": "tertiary", "displayName": "Category Blue Wash", "canonical": "#e8f3ff", "tonalRamp": ["#10273d", "#294965", "#4d6d89", "#7793ac", "#a2b8cb", "#c7d8e7", "#e8f3ff", "#f7fbff"] },
+      "phone": { "role": "tertiary", "displayName": "Category Amber", "canonical": "#dc8a12", "tonalRamp": ["#382305", "#6b4308", "#9f640d", "#dc8a12", "#e8a545", "#f0c079", "#f8dda9", "#fff3d9"] },
+      "phone-soft": { "role": "tertiary", "displayName": "Category Amber Wash", "canonical": "#fff3d9", "tonalRamp": ["#36270b", "#624b1d", "#8c713b", "#b49a62", "#d3be8d", "#eadcb4", "#fff3d9", "#fffaf0"] },
+      "email": { "role": "tertiary", "displayName": "Category Rose", "canonical": "#d94a64", "tonalRamp": ["#381119", "#6a2331", "#9d3549", "#d94a64", "#e37689", "#eba2af", "#f4cbd2", "#ffe9ee"] },
+      "email-soft": { "role": "tertiary", "displayName": "Category Rose Wash", "canonical": "#ffe9ee", "tonalRamp": ["#38171f", "#66313e", "#934f5d", "#bc7684", "#daa2ad", "#edc7cf", "#ffe9ee", "#fff7f9"] },
+      "dob": { "role": "tertiary", "displayName": "Category Violet", "canonical": "#7862cc", "tonalRamp": ["#1d1734", "#392d63", "#554792", "#7862cc", "#9988da", "#b9afe7", "#d8d1f2", "#eeeafd"] },
+      "dob-soft": { "role": "tertiary", "displayName": "Category Violet Wash", "canonical": "#eeeafd", "tonalRamp": ["#242039", "#453e66", "#68608f", "#8e86b6", "#b4aed6", "#d5d0ec", "#eeeafd", "#faf9ff"] },
+      "address": { "role": "tertiary", "displayName": "Category Green", "canonical": "#138f6d", "tonalRamp": ["#05271e", "#094a38", "#0e6d53", "#138f6d", "#40aa8a", "#7ac6ad", "#b2dfd0", "#e4f7f0"] },
+      "address-soft": { "role": "tertiary", "displayName": "Category Green Wash", "canonical": "#e4f7f0", "tonalRamp": ["#092a21", "#1a4d3f", "#3c7160", "#699989", "#99c0b3", "#bedad3", "#e4f7f0", "#f5fcf9"] }
+    },
+    "typographyMeta": {
+      "headline": { "displayName": "Workspace Headline", "purpose": "The primary workspace title." },
+      "title": { "displayName": "Panel Title", "purpose": "Panel headings and prominent state messages." },
+      "body": { "displayName": "Thai Interface Body", "purpose": "Task instructions and explanatory interface copy." },
+      "label": { "displayName": "Operational Label", "purpose": "Controls, status, helper text, and compact metadata." },
+      "code": { "displayName": "Inspection Code", "purpose": "Source text, protected output, line gutters, and technical badges." }
+    },
+    "shadows": [
+      { "name": "workspace-ambient", "value": "0 14px 34px rgb(24 53 87 / 7%)", "purpose": "Soft separation for source and protected editor panels." },
+      { "name": "action-ambient", "value": "0 7px 18px rgb(8 127 157 / 18%)", "purpose": "Resting emphasis for the primary masking action." },
+      { "name": "bridge-structural", "value": "0 7px 18px rgb(24 53 87 / 10%)", "purpose": "Keeps the transformation node legible over its connector." },
+      { "name": "confirmation", "value": "0 8px 20px rgb(10 35 73 / 18%)", "purpose": "Short-lived copy confirmation only." }
+    ],
+    "motion": [
+      { "name": "state-quick", "value": "160ms ease-out", "purpose": "Button and control state transitions." },
+      { "name": "switch-snap", "value": "170ms cubic-bezier(.2,.8,.2,1)", "purpose": "Binary rule switch movement." },
+      { "name": "processing-sweep", "value": "900ms cubic-bezier(.16,1,.3,1) alternate", "purpose": "Restrained processing feedback on the bridge node." }
+    ],
+    "breakpoints": [
+      { "name": "paired-workspace", "value": "1180px" },
+      { "name": "stacked-workflow", "value": "760px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Masking Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The single teal action that runs the privacy transformation.",
+      "html": "<button class=\"ds-btn-primary\" type=\"button\"><svg viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\"><path d=\"M12 2.8 19 5.9v5.4c0 4.4-2.9 8.3-7 9.9-4.1-1.6-7-5.5-7-9.9V5.9L12 2.8Z\"/><path d=\"M9.5 11v-1a2.5 2.5 0 0 1 5 0v1M8.8 11h6.4v5H8.8v-5Z\"/></svg>ปิดบังข้อมูล</button>",
+      "css": ".ds-btn-primary{min-height:44px;display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:9px 16px;color:#fff;background:#087f9d;border:1px solid #087f9d;border-radius:10px;box-shadow:0 7px 18px rgb(8 127 157 / 18%);font:600 .88rem/1.4 'Noto Sans Thai',Tahoma,sans-serif;cursor:pointer;transition:background-color 160ms ease-out,border-color 160ms ease-out,box-shadow 160ms ease-out,transform 160ms ease-out}.ds-btn-primary svg{width:20px;height:20px;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}.ds-btn-primary:hover{background:#066b86;border-color:#066b86;box-shadow:0 9px 22px rgb(8 127 157 / 24%);transform:translateY(-1px)}.ds-btn-primary:active{transform:translateY(0)}.ds-btn-primary:focus-visible{outline:3px solid rgb(20 119 212 / 28%);outline-offset:2px}"
+    },
+    {
+      "name": "Secondary Sample Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "A white outlined action for loading sample data or other supporting work.",
+      "html": "<button class=\"ds-btn-secondary\" type=\"button\"><svg viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\"><path d=\"M9 3h6M10 3v5l-5.2 9.1A2.6 2.6 0 0 0 7.1 21h9.8a2.6 2.6 0 0 0 2.3-3.9L14 8V3M7.3 14h9.4\"/></svg>โหลดตัวอย่าง log</button>",
+      "css": ".ds-btn-secondary{min-height:44px;display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:9px 16px;color:#122b50;background:#fff;border:1px solid #c4cfdd;border-radius:10px;font:600 .88rem/1.4 'Noto Sans Thai',Tahoma,sans-serif;cursor:pointer;transition:background-color 160ms ease-out,border-color 160ms ease-out,transform 160ms ease-out}.ds-btn-secondary svg{width:20px;height:20px;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}.ds-btn-secondary:hover{background:#f8fafc;border-color:#aebccc;transform:translateY(-1px)}.ds-btn-secondary:active{transform:translateY(0)}.ds-btn-secondary:focus-visible{outline:3px solid rgb(20 119 212 / 28%);outline-offset:2px}"
+    },
+    {
+      "name": "Product Navigation",
+      "kind": "nav",
+      "description": "The slim official header with product identity, privacy truth, and source link.",
+      "html": "<nav class=\"ds-nav\"><span class=\"ds-nav-mark\"><svg viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M12 2.75 19 5.8v5.48c0 4.38-2.93 8.42-7 9.97-4.07-1.55-7-5.59-7-9.97V5.8L12 2.75Z\"/><path d=\"M9.4 11.25v-1a2.6 2.6 0 1 1 5.2 0v1M8.7 11.25h6.6v5H8.7v-5Z\"/></svg></span><strong>PDPA MASKING</strong><span class=\"ds-nav-rule\"></span><span class=\"ds-nav-promise\">ปิดข้อมูลที่ต้องซ่อน เหลือสิ่งที่ต้องใช้</span><span class=\"ds-nav-state\"><i></i>ไม่จัดเก็บข้อความ</span><a href=\"#\">GitHub</a></nav>",
+      "css": ".ds-nav{min-height:78px;display:flex;align-items:center;gap:14px;padding:14px 22px;color:#0a2349;background:#fff;border-bottom:1px solid #d8e0ea;font-family:'Noto Sans Thai',Tahoma,sans-serif}.ds-nav-mark{width:38px;height:38px;display:grid;place-items:center;color:#087f9d;background:#e6f6f8;border-radius:10px}.ds-nav-mark svg{width:23px;height:23px;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}.ds-nav strong{font-size:1.1rem}.ds-nav-rule{width:1px;height:31px;background:#c4cfdd}.ds-nav-promise{font-weight:600}.ds-nav-state{display:flex;align-items:center;gap:8px;margin-left:auto;color:#5d6f89;font-size:.82rem}.ds-nav-state i{width:8px;height:8px;background:#14956f;border-radius:50%}.ds-nav a{padding:7px 11px;color:#5d6f89;border:1px solid #d8e0ea;border-radius:9px;text-decoration:none}.ds-nav a:hover{color:#0a2349;background:#f8fafc;border-color:#c4cfdd}.ds-nav a:focus-visible{outline:3px solid rgb(20 119 212 / 28%);outline-offset:2px}"
+    },
+    {
+      "name": "Rule Toggle",
+      "kind": "custom",
+      "description": "A category-coded masking rule with a full-row label and clear binary state.",
+      "html": "<label class=\"ds-rule-toggle\"><span class=\"ds-rule-icon\"><svg viewBox=\"0 0 24 24\" fill=\"none\"><rect x=\"3\" y=\"5\" width=\"18\" height=\"14\" rx=\"2\"/><path d=\"M3 9h18M7 15h4\"/></svg></span><span class=\"ds-rule-copy\"><strong>บัตรเครดิต</strong><small>เลขบัตรเครดิต 16 หลัก เหลือ 4 ตัวท้าย</small></span><input type=\"checkbox\" checked><span class=\"ds-switch\"><span></span></span></label>",
+      "css": ".ds-rule-toggle{min-height:88px;display:grid;grid-template-columns:42px minmax(0,1fr) 36px;align-items:center;gap:11px;padding:13px 15px;color:#122b50;background:#fff;border-bottom:1px solid #d8e0ea;font-family:'Noto Sans Thai',Tahoma,sans-serif;cursor:pointer;transition:background-color 150ms ease-out}.ds-rule-toggle:hover{background:#f8fafc}.ds-rule-icon{width:42px;height:42px;display:grid;place-items:center;color:#1784d9;background:#e8f3ff;border-radius:10px}.ds-rule-icon svg{width:22px;height:22px;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}.ds-rule-copy strong,.ds-rule-copy small{display:block}.ds-rule-copy strong{font-size:.89rem;font-weight:600}.ds-rule-copy small{color:#5d6f89;font-size:.7rem}.ds-rule-toggle input{position:absolute;width:1px;height:1px;opacity:0}.ds-switch{width:36px;height:21px;display:flex;align-items:center;padding:3px;background:#c7d1de;border-radius:999px;transition:background-color 150ms ease-out}.ds-switch span{width:15px;height:15px;background:#fff;border-radius:50%;box-shadow:0 2px 5px rgb(18 43 80 / 22%);transition:transform 170ms cubic-bezier(.2,.8,.2,1)}.ds-rule-toggle input:checked+.ds-switch{background:#1784d9}.ds-rule-toggle input:checked+.ds-switch span{transform:translateX(15px)}.ds-rule-toggle:has(input:focus-visible){outline:3px solid rgb(20 119 212 / 24%);outline-offset:-3px}"
+    },
+    {
+      "name": "Source Editor",
+      "kind": "input",
+      "refersTo": "input-code",
+      "description": "The bordered inspection field for pasted source text, with line gutter and technical badge.",
+      "html": "<section class=\"ds-editor\"><header><span><strong>ข้อความต้นฉบับ</strong><small>ข้อมูลที่ต้องการตรวจสอบ</small></span><b>INPUT</b></header><div class=\"ds-editor-body\"><pre>1\n2\n3\n4</pre><textarea aria-label=\"ข้อความต้นฉบับ\" placeholder=\"วาง log หรือข้อความที่นี่...\"></textarea></div><footer><span><i></i>พร้อมรับข้อความ</span><span>0 ตัวอักษร</span></footer></section>",
+      "css": ".ds-editor{overflow:hidden;color:#122b50;background:#fff;border:1px solid #d8e0ea;border-radius:12px;box-shadow:0 14px 34px rgb(24 53 87 / 7%);font-family:'Noto Sans Thai',Tahoma,sans-serif}.ds-editor header{min-height:72px;display:flex;align-items:center;justify-content:space-between;padding:15px 17px;border-bottom:1px solid #d8e0ea}.ds-editor header strong,.ds-editor header small{display:block}.ds-editor header strong{color:#0a2349}.ds-editor header small{color:#5d6f89;font-size:.78rem}.ds-editor header b{padding:3px 7px;color:#47617e;background:#eef3f8;border-radius:6px;font:500 .65rem/1.4 'IBM Plex Mono',Consolas,monospace;letter-spacing:.04em}.ds-editor-body{height:240px;display:grid;grid-template-columns:43px 1fr;background:#fbfcfe}.ds-editor-body pre{margin:0;padding:16px 9px;color:#5f7187;background:#f7f9fc;border-right:1px solid #e3e9f0;font:400 .72rem/1.85rem 'IBM Plex Mono',Consolas,monospace;text-align:right}.ds-editor textarea{width:100%;height:100%;resize:none;padding:16px 18px;color:#183b68;background:transparent;border:0;outline:0;font:400 .82rem/1.85rem 'IBM Plex Mono',Consolas,monospace}.ds-editor textarea:focus{background:#fff;box-shadow:inset 0 0 0 2px rgb(20 119 212 / 18%)}.ds-editor textarea:focus-visible{outline:3px solid rgb(20 119 212 / 28%);outline-offset:-3px}.ds-editor footer{min-height:42px;display:flex;align-items:center;justify-content:space-between;padding:9px 14px;color:#5d6f89;border-top:1px solid #d8e0ea;font-size:.72rem}.ds-editor footer span{display:flex;align-items:center;gap:7px}.ds-editor footer i{width:8px;height:8px;background:#087f9d;border-radius:50%}"
+    },
+    {
+      "name": "Category Chip",
+      "kind": "chip",
+      "description": "A compact neutral summary chip whose dot alone carries category color.",
+      "html": "<span class=\"ds-chip\"><i></i>credit_card <strong>3</strong></span>",
+      "css": ".ds-chip{display:inline-flex;align-items:center;gap:6px;padding:4px 8px;color:#5d6f89;background:#f6f8fb;border-radius:7px;font:400 .68rem/1.4 'Noto Sans Thai',Tahoma,sans-serif}.ds-chip i{width:7px;height:7px;background:#1784d9;border-radius:50%}.ds-chip strong{color:#122b50;font-weight:600}.ds-chip:hover{background:#eef3f8}.ds-chip:focus-visible{outline:3px solid rgb(20 119 212 / 28%);outline-offset:2px}"
+    },
+    {
+      "name": "Protected Summary",
+      "kind": "card",
+      "description": "A low-key success strip for truthful masking results and copy access.",
+      "html": "<div class=\"ds-result-summary\"><span class=\"ds-summary-status\"><svg viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M12 2.8 19 5.9v5.4c0 4.4-2.9 8.3-7 9.9-4.1-1.6-7-5.5-7-9.9V5.9L12 2.8Z\"/><path d=\"m8.8 12 2 2 4.5-4.5\"/></svg></span><span><strong>ปิดบังสำเร็จ 3 จุด</strong><small>ตรวจพบจากกฎที่เลือก</small></span><button aria-label=\"คัดลอกผลลัพธ์\"><svg viewBox=\"0 0 24 24\" fill=\"none\"><rect x=\"8\" y=\"8\" width=\"11\" height=\"11\" rx=\"2\"/><path d=\"M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2\"/></svg></button></div>",
+      "css": ".ds-result-summary{display:flex;align-items:center;gap:9px;padding:12px 14px;color:#0d664f;background:#e8f8f2;border-bottom:1px solid #cdece1;font-family:'Noto Sans Thai',Tahoma,sans-serif}.ds-summary-status{width:30px;height:30px;display:grid;place-items:center;color:#14956f;background:#fff;border-radius:8px}.ds-result-summary svg{width:19px;height:19px;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}.ds-result-summary strong,.ds-result-summary small{display:block}.ds-result-summary strong{font-size:.78rem}.ds-result-summary small{color:#3e735f;font-size:.66rem}.ds-result-summary button{width:34px;height:34px;display:grid;place-items:center;margin-left:auto;color:#122b50;background:#fff;border:1px solid #c4cfdd;border-radius:8px;cursor:pointer}.ds-result-summary button:hover{color:#087f9d;background:#fafdff}.ds-result-summary button:active{background:#e6f6f8}.ds-result-summary button:focus-visible{outline:3px solid rgb(20 119 212 / 28%);outline-offset:2px}"
+    },
+    {
+      "name": "Transformation Bridge",
+      "kind": "custom",
+      "description": "The structural connector that makes source-to-protected transformation explicit.",
+      "html": "<div class=\"ds-bridge\"><span class=\"ds-bridge-line\"></span><span class=\"ds-bridge-control\"><svg viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M5 12h14M14 7l5 5-5 5\"/></svg></span><small>MASK</small></div>",
+      "css": ".ds-bridge{width:64px;height:220px;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#122b50}.ds-bridge-line{position:absolute;inset:0 auto;width:1px;background:#c4cfdd}.ds-bridge-control{z-index:1;width:44px;height:44px;display:grid;place-items:center;background:#fff;border:1px solid #c4cfdd;border-radius:50%;box-shadow:0 7px 18px rgb(24 53 87 / 10%);transition:color 160ms ease-out,background-color 160ms ease-out,transform 160ms ease-out}.ds-bridge-control svg{width:22px;height:22px;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}.ds-bridge small{z-index:1;margin-top:10px;padding:2px 4px;color:#5c6f85;background:#f4f7fa;font:400 .59rem/1.4 'IBM Plex Mono',Consolas,monospace;letter-spacing:.06em}.ds-bridge:hover .ds-bridge-control{color:#fff;background:#087f9d;transform:translateY(-1px)}.ds-bridge:focus-within .ds-bridge-control{outline:3px solid rgb(20 119 212 / 28%);outline-offset:2px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Compliance Workbench",
+    "overview": "The system presents privacy masking as a clear before-and-after inspection. It should feel clean, official, easy, and presentation-ready: cool white working surfaces sit on a pale canvas, navy type establishes calm authority, and restrained teal identifies the primary action.\n\nInformation structure creates the visual interest. Fine rules, aligned editor geometry, a continuously visible rules rail, and a compact transformation bridge make the process legible without turning the product into a theatrical cyber dashboard. Components are refined and restrained; subtle depth may be ambient or structural, never decorative.",
+    "keyCharacteristics": [
+      "Cool white layered work surfaces with navy clarity.",
+      "Teal reserved for action, privacy state, and workflow continuity.",
+      "Fine blue-gray rules organize dense operational content.",
+      "Five category colors appear as small semantic indicators, not large fills.",
+      "Equal source and protected editors make transformation visible at a glance."
+    ],
+    "rules": [
+      { "name": "The Restrained Signal Rule", "body": "Category colors identify data types only in compact fields; they never become panel backgrounds or competing calls to action.", "section": "colors" },
+      { "name": "The One Action Voice Rule", "body": "Teal owns the primary workflow action; navy and white controls remain secondary.", "section": "colors" },
+      { "name": "The Two-Language Rule", "body": "Thai leads all task instructions; short English identifiers such as INPUT, PROTECTED, and MASK may remain when they improve technical scanning.", "section": "typography" },
+      { "name": "The Monospace Boundary Rule", "body": "Monospace belongs to user data and technical identifiers, never general navigation or explanatory prose.", "section": "typography" },
+      { "name": "The Single-Viewport Story Rule", "body": "At desktop presentation widths, rule choice, source, transformation, and protected output must remain simultaneously scannable.", "section": "layout" },
+      { "name": "The Border-First Rule", "body": "Establish hierarchy with surface tone and fine rules before adding shadow.", "section": "elevation" },
+      { "name": "The Ambient Ceiling Rule", "body": "Shadows remain cool, diffuse, and below 24% opacity; no glow, glass, or dramatic floating layers.", "section": "elevation" },
+      { "name": "The Quiet Corner Rule", "body": "Rounded forms should soften an official workspace, not make it playful; avoid oversized capsules and nested rounding.", "section": "shapes" }
+    ],
+    "dos": [
+      "Do keep source and protected output equally prominent and visibly connected.",
+      "Do use fine rules and alignment as the primary organizing devices.",
+      "Do reserve teal for the primary action and truthful workflow or privacy signals.",
+      "Do keep all five rule categories continuously scannable, including on mobile.",
+      "Do preserve clear focus states, keyboard operation, and reduced-motion behavior."
+    ],
+    "donts": [
+      "Don't turn the interface into a theatrical cyber dashboard.",
+      "Don't use decorative glow, glassmorphism, dense gradients, or excessive ornament.",
+      "Don't spread category colors across large surfaces or primary actions.",
+      "Don't imply storage, fabricated metrics, generated administrator identity, or unsupported masking capabilities.",
+      "Don't allow responsive layouts to obscure the before-and-after workflow."
+    ]
+  }
+}

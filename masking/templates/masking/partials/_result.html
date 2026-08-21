@@ -1,27 +1,15 @@
-{# ผลลัพธ์ที่ HTMX เอาไปวางใน #result  [ผู้รับผิดชอบ: คนที่ 6] #}
 <div class="result" x-data="{ copied: false }">
-
-  <div class="summary">
-    {% if result.total %}
-      <strong>เจอข้อมูลส่วนบุคคล {{ result.total }} จุด</strong>
-      <ul class="summary-list">
-        {% for rule, count in result.summary.items %}
-          <li class="chip" data-rule="{{ rule }}">{{ rule }} × {{ count }}</li>
-        {% endfor %}
-      </ul>
-    {% else %}
-      <strong>ไม่พบข้อมูลส่วนบุคคล</strong>
-      {# ตอนนี้กฎยังเป็น stub อยู่ จึงยังไม่เจออะไร — เป็นเรื่องปกติ #}
-    {% endif %}
+  <div class="result-summary {% if not result.total %}result-summary-empty{% endif %}">
+    <div>
+      {% if result.total %}
+        <span class="summary-status success" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2.8 19 5.9v5.4c0 4.4-2.9 8.3-7 9.9-4.1-1.6-7-5.5-7-9.9V5.9L12 2.8Z"/><path d="m8.8 12 2 2 4.5-4.5"/></svg></span><span><strong>ปิดบังสำเร็จ {{ result.total }} จุด</strong><small>ตรวจพบจากกฎที่เลือก</small></span>
+      {% else %}
+        <span class="summary-status neutral" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9"/><path d="M8 12h8"/></svg></span><span><strong>ไม่พบข้อมูลที่ตรงกับกฎ</strong><small>ลองตรวจรูปแบบข้อความหรือเลือกกฎเพิ่มเติม</small></span>
+      {% endif %}
+    </div>
+    <button type="button" class="icon-button copy-button" @click="navigator.clipboard.writeText($refs.masked.innerText); copied = true; setTimeout(() => copied = false, 1800)" :aria-label="copied ? 'คัดลอกแล้ว' : 'คัดลอกผลลัพธ์'" title="คัดลอกผลลัพธ์"><svg x-show="!copied" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="8" y="8" width="11" height="11" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></svg><svg x-show="copied" x-cloak viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg></button>
   </div>
-
   <pre class="masked-text" x-ref="masked">{% for seg in segments %}{% if seg.rule %}<mark class="hl" data-rule="{{ seg.rule }}" title="{{ seg.label }}">{{ seg.text }}</mark>{% else %}{{ seg.text }}{% endif %}{% endfor %}</pre>
-
-  <button type="button" class="btn btn-copy"
-          @click="navigator.clipboard.writeText($refs.masked.innerText); copied = true; setTimeout(() => copied = false, 1500)">
-    <span x-show="!copied">คัดลอกผลลัพธ์</span>
-    <span x-show="copied" x-cloak>คัดลอกแล้ว</span>
-  </button>
-
-  {% comment %} TODO(คนที่ 6): ทำตารางรายละเอียด detection (original -> masked) แบบพับเก็บได้ {% endcomment %}
+  {% if result.total %}<ul class="summary-list" aria-label="สรุปข้อมูลที่ตรวจพบ">{% for rule, count in result.summary.items %}<li class="chip" data-rule="{{ rule }}"><span aria-hidden="true"></span>{{ rule }} <strong>{{ count }}</strong></li>{% endfor %}</ul>{% endif %}
+  <div class="copy-confirmation" x-show="copied" x-cloak role="status">คัดลอกผลลัพธ์แล้ว</div>
 </div>
