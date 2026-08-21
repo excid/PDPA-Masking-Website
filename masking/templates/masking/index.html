@@ -4,6 +4,7 @@
 <div class="app-shell" x-data="maskApp()" x-init="syncRuleCount()">
   <form class="mask-form" hx-post="{% url 'masking:mask_partial' %}" hx-target="#result" hx-swap="innerHTML" hx-indicator="#spinner">
     <div class="workspace-toolbar">
+      <div class="workspace-heading"></div>
       <div class="toolbar-actions">
         <button type="button" class="button button-secondary" hx-get="{% url 'masking:load_sample' %}" hx-target="#input-area" hx-swap="innerHTML"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M9 3h6M10 3v5l-5.2 9.1A2.6 2.6 0 0 0 7.1 21h9.8a2.6 2.6 0 0 0 2.3-3.9L14 8V3M7.3 14h9.4"/></svg>โหลดตัวอย่าง log</button>
         <button type="submit" class="button button-primary" aria-disabled="false"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2.8 19 5.9v5.4c0 4.4-2.9 8.3-7 9.9-4.1-1.6-7-5.5-7-9.9V5.9L12 2.8Z"/><path d="M9.5 11v-1a2.5 2.5 0 0 1 5 0v1M8.8 11h6.4v5H8.8v-5Z"/></svg><span class="button-label">ปิดบังข้อมูล</span><span id="spinner" class="htmx-indicator" aria-live="polite">กำลังประมวลผล</span></button>
