@@ -10,18 +10,24 @@
 แนวทาง: ใช้ named group ``target`` ครอบเฉพาะเลขที่บ้าน + non-capturing group
 ``(?:...)`` สำหรับส่วนที่เป็น optional (ซอย/หมู่/ถนน)
 
+แนวคิดสำคัญ: ไม่พยายามหา "เลขที่บ้าน" แบบลอย ๆ เพราะแยกจากเลขซอยไม่ได้
+ต้องบังคับให้มี prefix (Address / ที่อยู่ / บ้านเลขที่) นำหน้าเสมอ —
+ตัวเลขที่ตามหลัง ซอย/ซ./Soi/หมู่/ชั้น จะไม่มี prefix พวกนี้นำหน้า จึงไม่ถูกจับ
+
+ขอบเขตที่ตัดสินใจ: mask เฉพาะ "เลขที่บ้าน" (รูปแบบ 689/12 หรือ 42) เท่านั้น
+ไม่แตะถนน/ตำบล/อำเภอ/ซอย/หมู่ เพราะข้อมูลเหล่านั้นระบุตัวบุคคลไม่ได้ชัดเท่าเลขที่บ้าน
+
 TODO(คนที่ 5):
-  [ ] pattern จริง + named group target ครอบเฉพาะเลขที่บ้าน
-  [ ] เคสที่ต้อง "ไม่จับ": ``ซอยสุขุมวิท 71``, ``หมู่ 5``, ``ชั้น 12``
-  [ ] ตัดสินใจว่าจะ mask ถนน/ตำบล/อำเภอด้วยไหม แล้วเขียนลง README
-  [ ] เขียนเทสต์ที่ tests/test_address.py
+  [x] pattern จริง + named group target ครอบเฉพาะเลขที่บ้าน
+  [x] เคสที่ต้อง "ไม่จับ": ``ซอยสุขุมวิท 71``, ``หมู่ 5``, ``ชั้น 12``
+  [x] ตัดสินใจว่าจะ mask ถนน/ตำบล/อำเภอด้วยไหม แล้วเขียนลง README
+  [ ] เขียนเทสต์ที่ tests/test_address.py (มีเทสต์อยู่แล้ว แค่ลบ pytestmark xfail ทิ้ง)
 """
 from __future__ import annotations
 
 import re
 
 from ..base import RegexRule
-from ._common import NEVER_MATCH
 
 
 class AddressRule(RegexRule):
@@ -31,14 +37,14 @@ class AddressRule(RegexRule):
     priority = 50
 
     pattern = re.compile(
-        rf"""
-        {NEVER_MATCH}    # TODO: (?:Address|ที่อยู่|บ้านเลขที่)\s*:?\s*(?P<target>\d+(?:/\d+)?)
+        r"""
+        (?:Address|ที่อยู่|บ้านเลขที่)\s*:?\s*(?P<target>\d+(?:/\d+)?)        
         """,
         re.VERBOSE | re.IGNORECASE,
     )
 
     def mask(self, match: re.Match[str]) -> str:
-        return match.group(0)
+        return re.sub(r"\d", "*", match.group("target"))
 
 
 __all__ = ["AddressRule"]
