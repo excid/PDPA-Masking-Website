@@ -58,9 +58,7 @@ class CreditCardRule(RegexRule):
         re.VERBOSE,
     )
 
-    def is_valid(self, match: re.Match[str]) -> bool:
-        # ใช้ luhn_check ตรวจสอบก่อนว่าใช่บัตรจริงไหม
-        return luhn_check(match.group("cc_number"))
+
 
     def mask(self, match: re.Match[str]) -> str:
         text = match.group("cc_number")
