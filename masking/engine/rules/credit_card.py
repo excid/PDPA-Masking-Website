@@ -30,7 +30,7 @@ def luhn_check(number: str) -> bool:
 class CreditCardRule(RegexRule):
     name = "credit_card"
     label = "บัตรเครดิต"
-    description = "เลขบัตรเครดิต 16 หลัก เหลือ 4 ตัวท้าย"
+    description = "เลขบัตร 16 หลัก ปิด 12 หลักแรกและคงตัวคั่นเดิม"
     priority = 10
 
     pattern = re.compile(

@@ -15,7 +15,7 @@ MASK_CHAR = "*"
 class EmailRule(RegexRule):
     name = "email"
     label = "อีเมล"
-    description = "อีเมล เก็บตัวอักษรตัวแรก-ตัวสุดท้ายของ username เปิดเผยโดเมน"
+    description = "อีเมล ปิดอักขระกลางของชื่อผู้ใช้และคงโดเมนเดิม"
     priority = 30
 
     pattern = re.compile(

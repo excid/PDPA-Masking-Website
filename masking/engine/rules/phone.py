@@ -9,7 +9,7 @@ from ..base import RegexRule
 class PhoneRule(RegexRule):
     name = "phone"
     label = "เบอร์โทรศัพท์"
-    description = "เบอร์โทรไทย (มือถือ/บ้าน/สากล) เหลือ 4 ตัวท้าย"
+    description = "เบอร์โทรรูปแบบไทยหรือ +66 ปิดด้วย X และแสดง 4 หลักท้าย"
     priority = 20
 
     pattern = re.compile(

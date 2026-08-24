@@ -12,7 +12,7 @@ _DAYS_IN_MONTH = (31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31)
 class DobRule(RegexRule):
     name = "dob"
     label = "วันเดือนปีเกิด"
-    description = "วันเกิดที่ขึ้นต้นด้วย DOB: เซ็นเซอร์ทั้งหมด ยกเว้น 2 หลักแรกของปี พ.ศ."
+    description = "วันเกิดรูปแบบ DOB: DD/MM/พ.ศ. ปิดวัน เดือน และ 2 หลักท้ายของปี"
     priority = 40
 
     pattern = re.compile(
