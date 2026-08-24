@@ -1,8 +1,3 @@
-"""เทสต์ตัว orchestrator   [ผู้รับผิดชอบ: คนที่ 1 / Lead]
-
-เทสต์ในไฟล์นี้ต้อง **ผ่านตั้งแต่ยังเป็น stub** เพราะทดสอบกลไกการรวมผล
-ไม่ได้ทดสอบ regex ของใคร
-"""
 from __future__ import annotations
 
 from masking.engine import Detection, mask_text
@@ -23,14 +18,12 @@ class TestEmptyAndPlainText:
         assert mask_text(text).masked == text
 
     def test_stub_rules_do_not_change_text(self):
-        """ตราบใดที่กฎยังเป็น stub ข้อความต้องออกมาเหมือนเดิม"""
         text = "email: somchai@example.com | tel: 081-234-5678"
         assert mask_text(text).masked == text
 
 
 class TestReplacement:
     def test_replace_from_end_keeps_indexes_valid(self):
-        """แทนที่จากท้ายไปหน้า แม้ความยาวใหม่จะไม่เท่าเดิม"""
         text = "AAA BBB CCC"
         result = apply_detections(text, [det(0, 3, "#"), det(8, 11, "######")])
         assert result == "# BBB ######"
@@ -76,8 +69,6 @@ class TestRuleToggle:
 
 
 class TestRuleContract:
-    """กันไม่ให้ใครเผลอตั้งชื่อกฎซ้ำ หรือลืมใส่ label"""
-
     def test_names_are_unique(self):
         assert len(set(rule_names())) == len(RULES)
 

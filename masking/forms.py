@@ -1,4 +1,4 @@
-"""ฟอร์มรับข้อความจากหน้าเว็บ   [ผู้รับผิดชอบ: คนที่ 7 / Backend]"""
+"""Masking form."""
 from __future__ import annotations
 
 from django import forms
@@ -8,8 +8,6 @@ from .engine.registry import rule_catalog
 
 
 class MaskForm(forms.Form):
-    """textarea + checkbox เปิด/ปิดแต่ละกฎ"""
-
     text = forms.CharField(
         widget=forms.Textarea(attrs={"rows": 12, "placeholder": "วาง log หรือข้อความที่นี่..."}),
         required=False,
@@ -29,7 +27,6 @@ class MaskForm(forms.Form):
         self.fields["rules"].initial = [name for name, _ in choices]
 
     def enabled_rules(self) -> list[str] | None:
-        """คืน ``None`` เมื่อไม่ได้ส่ง field มาเลย = เปิดทุกกฎ"""
         if "rules" not in self.data:
             return None
         return self.cleaned_data.get("rules") or []

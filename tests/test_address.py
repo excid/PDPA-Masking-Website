@@ -1,18 +1,10 @@
-"""เทสต์กฎ: ที่อยู่   [ผู้รับผิดชอบ: คนที่ 5 / Regex D]
-
-วิธีใช้ไฟล์นี้
-  1. ตอนนี้กฎยังเป็น stub เทสต์จึงถูกทำเครื่องหมาย xfail ไว้ (ไม่ทำให้ CI แดง)
-  2. พอเขียน regex เสร็จ ให้ **ลบบรรทัด pytestmark ทิ้ง** แล้วเทสต์จะเริ่มบังคับใช้จริง
-  3. เกณฑ์ให้คะแนนดู "ความหลากหลายของกรณีทดสอบ" → ต้องมีทั้งเคสที่ต้องจับ
-     และเคสที่ต้อง **ไม่** จับ (คลาส TestMustNotMatch)
-"""
 from __future__ import annotations
 
 import pytest
 
 from masking.engine import mask_text
 
-pytestmark = pytest.mark.xfail(reason="กฎยังเป็น stub — ลบบรรทัดนี้เมื่อเขียนเสร็จ", strict=False)
+pytestmark = pytest.mark.xfail(reason="address rule validation pending", strict=False)
 
 
 class TestMustMatch:
@@ -28,8 +20,6 @@ class TestMustMatch:
 
 
 class TestSoiNumberMustSurvive:
-    """หัวใจของกฎนี้ — เลขซอยต้องไม่ถูก mask"""
-
     def test_soi_number_kept(self):
         out = mask_text("Address: 689/12 ซอยสุขุมวิท 71").masked
         assert out.endswith("ซอยสุขุมวิท 71")

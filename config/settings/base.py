@@ -1,4 +1,4 @@
-"""ค่าตั้งที่ใช้ร่วมกันทั้ง dev และ prod."""
+"""Shared Django settings."""
 from pathlib import Path
 
 import environ
@@ -48,8 +48,6 @@ TEMPLATES = [
     },
 ]
 
-# โปรเจกต์นี้ไม่เก็บข้อมูลผู้ใช้ลง DB (ตามหลัก PDPA — ไม่เก็บคือปลอดภัยที่สุด)
-# ถ้าภายหลังต้องใช้ ค่อยเปิด DATABASES + django.contrib.auth
 DATABASES: dict = {}
 
 LANGUAGE_CODE = "th"
@@ -65,11 +63,9 @@ STORAGES = {
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-# ---- ค่าเฉพาะของโปรเจกต์ ----
-# จำกัดขนาดข้อความที่รับ เพื่อกัน regex ทำงานนานเกินไป
+# Bound regex work per request.
 MASKING_MAX_INPUT_CHARS = 20_000
 
-# ลิงก์ GitHub ที่โจทย์บังคับให้แสดงบนหน้าเว็บ
 GITHUB_REPO_URL = env(
     "GITHUB_REPO_URL", default="https://github.com/excid/pdpa-masking-website"
 )

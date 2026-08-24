@@ -1,17 +1,11 @@
-"""ตัวช่วยเล็ก ๆ ที่ใช้ร่วมกันหลายกฎ (Lead ดูแล)"""
+"""Shared masking helpers."""
 from __future__ import annotations
 
-#: pattern ที่ไม่ match อะไรเลย — ใช้เป็น placeholder ของ stub
-#: พอเขียนกฎจริงเสร็จให้ลบทิ้ง
 NEVER_MATCH = r"(?!x)x"
 
 
 def keep_last(digits: str, keep: int = 4, mask_char: str = "*") -> str:
-    """mask ตัวเลขทั้งหมดยกเว้น ``keep`` ตัวท้าย โดยคงตัวคั่นเดิมไว้
-
-    >>> keep_last("4111-1111-1111-1234")
-    '****-****-****-1234'
-    """
+    """Mask digits except the final ``keep`` digits, preserving separators."""
     out: list[str] = []
     total_digits = sum(ch.isdigit() for ch in digits)
     seen = 0

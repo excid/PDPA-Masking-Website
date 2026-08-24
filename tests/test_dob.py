@@ -1,6 +1,8 @@
 
 from __future__ import annotations
+
 import pytest
+
 from masking.engine import mask_text
 
 

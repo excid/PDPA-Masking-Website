@@ -24,6 +24,5 @@ fmt:
 migrate:
 	docker compose run --rm web python manage.py migrate
 
-# ---- แบบไม่ใช้ docker (venv ในเครื่อง) ----
 run:
 	python manage.py runserver

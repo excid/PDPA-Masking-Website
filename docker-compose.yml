@@ -6,12 +6,10 @@ services:
     container_name: pdpa-web
     command: python manage.py runserver 0.0.0.0:8000
     volumes:
-      # bind mount ให้แก้โค้ดแล้ว reload ทันที ไม่ต้อง rebuild
       - .:/app
     ports:
       - "8000:8000"
     env_file:
-      # required: false = ถ้ายังไม่ได้ cp .env.example .env ก็ยังรันได้ (ใช้ค่า default)
       - path: .env
         required: false
     environment:
@@ -19,7 +17,6 @@ services:
     stdin_open: true
     tty: true
 
-  # service สำหรับรัน test: docker compose run --rm test
   test:
     build:
       context: .
@@ -29,7 +26,6 @@ services:
     volumes:
       - .:/app
     env_file:
-      # required: false = ถ้ายังไม่ได้ cp .env.example .env ก็ยังรันได้ (ใช้ค่า default)
       - path: .env
         required: false
     environment:

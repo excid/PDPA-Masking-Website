@@ -1,8 +1,3 @@
-"""เทสต์ JSON API และหน้าเว็บ   [ผู้รับผิดชอบ: คนที่ 7 / Backend]
-
-เทสต์ชุดนี้ต้องผ่านตั้งแต่ยังเป็น stub — ทดสอบ "สัญญา" ของ API ไม่ใช่ regex
-โปรเจกต์นี้ไม่ใช้ฐานข้อมูล จึงไม่ต้องใส่ marker ``django_db``
-"""
 from __future__ import annotations
 
 import json
@@ -58,10 +53,9 @@ class TestPages:
         assert b"PDPA" in response.content
 
     def test_index_has_github_link(self, client):
-        """โจทย์บังคับว่าหน้าเว็บต้องมีลิงก์ไป GitHub"""
         assert b"github.com" in client.get("/").content
 
     def test_htmx_partial_returns_html_fragment(self, client):
         response = client.post("/mask/", {"text": "hello"}, HTTP_HX_REQUEST="true")
         assert response.status_code == 200
-        assert b"<html" not in response.content  # ต้องเป็นชิ้นส่วน ไม่ใช่หน้าเต็ม
+        assert b"<html" not in response.content

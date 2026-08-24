@@ -7,17 +7,15 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 
 WORKDIR /app
 
-# ติดตั้ง dependency ก่อน copy source เพื่อให้ layer cache ทำงาน
+# Keep dependency installation cacheable across source changes.
 COPY requirements.txt requirements-dev.txt ./
 
-# ---------- dev image: มี pytest / ruff ----------
 FROM base AS dev
 RUN pip install -r requirements-dev.txt
 COPY . .
 EXPOSE 8000
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
 
-# ---------- prod image: gunicorn + whitenoise ----------
 FROM base AS prod
 RUN pip install -r requirements.txt
 COPY . .

@@ -1,13 +1,4 @@
-"""JSON API   [ผู้รับผิดชอบ: คนที่ 7 / Backend + DevOps]
-
-แยกจาก engine โดยสิ้นเชิง — API เป็นแค่ "เปลือก" ที่แปลง JSON ไปเป็น
-พารามิเตอร์ของ :func:`masking.engine.mask_text` เท่านั้น
-ทำแบบนี้เพื่อให้คนทำ frontend กับคนเขียน regex ทำงานขนานกันได้
-
-    POST /api/mask/
-        {"text": "...", "rules": ["email", "phone"]}   # rules เป็น optional
-    ->  {"masked": "...", "detections": [...], "summary": {...}, "total": 0}
-"""
+"""JSON endpoints for the masking service."""
 from __future__ import annotations
 
 import json
@@ -21,7 +12,7 @@ from .engine import mask_text
 from .engine.registry import rule_catalog, rule_names
 
 
-@csrf_exempt  # API เปิดให้เรียกจากภายนอกได้ (ไม่มี session/ข้อมูลผู้ใช้ให้ป้องกัน)
+@csrf_exempt  # This endpoint does not use session authentication.
 @require_POST
 def mask_api(request: HttpRequest) -> JsonResponse:
     try:
@@ -53,11 +44,9 @@ def mask_api(request: HttpRequest) -> JsonResponse:
 
 @require_GET
 def rules_api(request: HttpRequest) -> JsonResponse:
-    """รายชื่อกฎทั้งหมด — frontend เอาไปวาด checkbox / legend สี"""
     return JsonResponse({"rules": rule_catalog()})
 
 
 @require_GET
 def health(request: HttpRequest) -> JsonResponse:
-    """endpoint สำหรับ health check ของ Render / Docker"""
     return JsonResponse({"status": "ok"})

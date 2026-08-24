@@ -1,9 +1,4 @@
-"""View ฝั่งหน้าเว็บ (HTMX)   [ผู้รับผิดชอบ: คนที่ 6 Frontend + คนที่ 7 Backend]
-
-รูปแบบการทำงานของ HTMX ในโปรเจกต์นี้:
-    textarea -> POST /mask/ -> คืน **HTML บางส่วน** (partials/_result.html)
-    -> HTMX เอาไปยัดใน <div id="result"> โดยไม่ต้องรีเฟรชหน้า
-"""
+"""HTML views for the masking interface."""
 from __future__ import annotations
 
 from pathlib import Path
@@ -22,7 +17,6 @@ SAMPLE_LOG_PATH = Path(settings.BASE_DIR) / "samples" / "sample_log.txt"
 
 @require_GET
 def index(request: HttpRequest) -> HttpResponse:
-    """หน้าแรก — textarea + ปุ่ม + กล่องผลลัพธ์"""
     return render(
         request,
         "masking/index.html",
@@ -36,7 +30,6 @@ def index(request: HttpRequest) -> HttpResponse:
 
 @require_POST
 def mask_partial(request: HttpRequest) -> HttpResponse:
-    """รับข้อความจาก HTMX แล้วคืน HTML บางส่วนของผลลัพธ์"""
     form = MaskForm(request.POST)
     if not form.is_valid():
         return render(request, "masking/partials/_error.html", {"form": form}, status=400)
@@ -51,21 +44,13 @@ def mask_partial(request: HttpRequest) -> HttpResponse:
 
 @require_GET
 def load_sample(request: HttpRequest) -> HttpResponse:
-    """ปุ่ม 'โหลดตัวอย่าง log' — คืน <textarea> ที่มีข้อความตัวอย่างอยู่แล้ว"""
     sample = SAMPLE_LOG_PATH.read_text(encoding="utf-8") if SAMPLE_LOG_PATH.exists() else ""
     form = MaskForm(initial={"text": sample})
     return render(request, "masking/partials/_input.html", {"form": form})
 
 
 def build_segments(result) -> list[dict]:
-    """แตกข้อความหลัง mask เป็นชิ้น ๆ เพื่อให้ template ใส่สีไฮไลต์ได้
-
-    คืน list ของ ``{"text": ..., "rule": ... | None, "label": ...}``
-    ชิ้นที่ ``rule`` เป็น ``None`` คือข้อความธรรมดา
-
-    TODO(คนที่ 6): ตอนนี้คำนวณจาก detection บนข้อความ **ต้นฉบับ**
-    ต้อง map ตำแหน่งใหม่หลังแทนที่ด้วย (ความยาว masked ไม่เท่าต้นฉบับเสมอไป)
-    """
+    """Split masked text into highlighted and plain segments."""
     segments: list[dict] = []
     cursor = 0
     offset = 0
