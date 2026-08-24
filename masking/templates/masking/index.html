@@ -36,7 +36,7 @@
       <section class="editor-panel source-panel" aria-labelledby="source-title">
         <div class="panel-heading editor-heading"><div><h2 id="source-title">ข้อความต้นฉบับ</h2></div><span class="editor-badge">INPUT</span></div>
         <div class="editor-body source-editor"><div class="line-gutter" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span></div><div id="input-area" class="editor-content">{% include "masking/partials/_input.html" %}</div></div>
-        <div class="editor-footer"><span><span class="footer-indicator" aria-hidden="true"></span>พร้อมรับข้อความ</span><span><strong x-text="charCount.toLocaleString()"></strong> ตัวอักษร</span></div>
+        <div class="editor-footer"><span><span class="footer-indicator" aria-hidden="true"></span>รับข้อความ</span><span><strong x-text="charCount.toLocaleString()"></strong> ตัวอักษร</span></div>
       </section>
 
       <div class="transfer-bridge" aria-hidden="true"><span class="bridge-line"></span><span class="bridge-control"><svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M14 7l5 5-5 5"/></svg></span><span class="bridge-label">MASK</span></div>
@@ -44,7 +44,7 @@
       <section class="editor-panel output-panel" aria-labelledby="output-title">
         <div class="panel-heading editor-heading"><div><h2 id="output-title">ผลลัพธ์ที่ปิดบังแล้ว</h2></div><span class="editor-badge editor-badge-safe">OUTPUT</span></div>
         <div class="editor-body output-editor"><div class="line-gutter" aria-hidden="true"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span></div><div id="result" class="editor-content result-host" aria-live="polite" aria-atomic="true"><div class="empty-state"><span class="empty-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2.8 19 5.9v5.4c0 4.4-2.9 8.3-7 9.9-4.1-1.6-7-5.5-7-9.9V5.9L12 2.8Z"/><path d="M9.5 11v-1a2.5 2.5 0 0 1 5 0v1M8.8 11h6.4v5H8.8v-5Z"/></svg></span><strong>พร้อมปิดบังข้อมูล</strong><p>วางข้อความ เลือกกฎ แล้วกด “ปิดบังข้อมูล”</p></div></div></div>
-        <div class="editor-footer"><span><span class="footer-indicator footer-indicator-safe" aria-hidden="true"></span>พื้นที่ผลลัพธ์</span></div>
+        <div class="editor-footer"><span><span class="footer-indicator footer-indicator-safe" aria-hidden="true"></span>ผลลัพธ์</span></div>
       </section>
     </div>
   </form>
