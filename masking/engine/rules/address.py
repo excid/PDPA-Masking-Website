@@ -9,7 +9,7 @@ from ..base import RegexRule
 class AddressRule(RegexRule):
     name = "address"
     label = "ที่อยู่"
-    description = "เลขที่บ้านหลังคำว่า Address, ที่อยู่ หรือ บ้านเลขที่ ปิดเฉพาะตัวเลข"
+    description = "เลขที่บ้าน, ที่อยู่ หรือ บ้านเลขที่ ปิดเฉพาะตัวเลข"
     priority = 50
 
     pattern = re.compile(
