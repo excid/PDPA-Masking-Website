@@ -179,7 +179,7 @@ main { width: 100%; }
 .rule-icon svg { width: 22px; height: 22px; }
 .rule-copy { min-width: 0; display: block; }
 .rule-copy strong { display: block; color: var(--ink); font-size: .89rem; font-weight: 600; }
-.rule-copy small { display: -webkit-box; overflow: hidden; color: var(--muted); font-size: .7rem; line-height: 1.4; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+.rule-copy small { display: block; overflow-wrap: anywhere; color: var(--muted); font-size: .7rem; line-height: 1.4; }
 .rule-toggle input { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
 .switch { width: 36px; height: 21px; display: flex; align-items: center; padding: 3px; justify-content: flex-start; background: #c7d1de; border-radius: 999px; transition: background-color 150ms ease-out; }
 .switch span { width: 15px; height: 15px; background: #fff; border-radius: 50%; box-shadow: 0 2px 5px rgb(18 43 80 / 22%); transition: transform 170ms cubic-bezier(.2,.8,.2,1); }
@@ -307,7 +307,6 @@ textarea:focus { background: #fff; box-shadow: inset 0 0 0 2px rgb(20 119 212 / 
   .rule-toggle { min-height: 104px; grid-template-columns: 36px minmax(0, 1fr); grid-template-rows: auto auto; align-content: center; border-right: 1px solid var(--line); }
   .rule-toggle:last-child { border-right: 0; }
   .rule-icon { width: 36px; height: 36px; }
-  .rule-copy small { -webkit-line-clamp: 1; }
   .switch { grid-column: 1 / -1; justify-self: start; }
   .rules-note { display: none; }
   .source-panel { grid-column: 1; }
@@ -339,7 +338,6 @@ textarea:focus { background: #fff; box-shadow: inset 0 0 0 2px rgb(20 119 212 / 
   .bridge-label { margin: 0 0 0 8px; }
   .rule-list { display: grid; grid-template-columns: 1fr; }
   .rule-toggle { min-height: 69px; grid-template-columns: 38px minmax(0, 1fr) 36px; grid-template-rows: auto; padding: 10px 14px; border-right: 0; }
-  .rule-copy small { -webkit-line-clamp: 1; }
   .switch { grid-column: auto; justify-self: auto; }
   .rules-note { display: flex; }
   .panel-heading { min-height: 65px; padding: 13px 14px; }
