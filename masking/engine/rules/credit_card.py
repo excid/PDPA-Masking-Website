@@ -4,13 +4,6 @@
     4111-1111-1111-1234  ->  ****-****-****-1234
     4111 1111 1111 1234  ->  **** **** **** 1234
     4111111111111234     ->  ************1234
-
-TODO(คนที่ 2):
-  [ ] เขียน pattern จริงแทน NEVER_MATCH (รองรับตัวคั่น -, เว้นวรรค, ไม่มีตัวคั่น)
-  [ ] กันไม่ให้ไปจับเลขยาว ๆ ที่ไม่ใช่บัตร เช่น transaction id 20 หลัก
-      (ใช้ \b หรือ lookaround กันเลขติดกันเกิน)
-  [ ] (โบนัส) ตรวจ Luhn checksum ใน is_valid() -> คะแนน "ความครอบคลุม"
-  [ ] เขียนเทสต์ที่ tests/test_credit_card.py
 """
 from __future__ import annotations
 
@@ -20,31 +13,56 @@ from ..base import RegexRule
 from ._common import NEVER_MATCH, keep_last
 
 
+def luhn_check(number: str) -> bool:
+    # ดึงเฉพาะตัวเลขออกมา
+    digits = [int(c) for c in number if c.isdigit()]
+    
+    if not digits:
+        return False
+
+    checksum = 0
+    is_second_digit = False
+    
+    # วนลูปจากหลังมาหน้าตามสูตร Luhn Algorithm
+    for digit in reversed(digits):
+        if is_second_digit:
+            digit *= 2
+            if digit > 9:
+                digit -= 9
+        checksum += digit
+        is_second_digit = not is_second_digit
+        
+    return checksum % 10 == 0
+
+
 class CreditCardRule(RegexRule):
     name = "credit_card"
     label = "บัตรเครดิต"
     description = "เลขบัตรเครดิต 16 หลัก เหลือ 4 ตัวท้าย"
-    # กฎนี้ได้สิทธิ์ก่อนเบอร์โทร เพราะเลขบัตรยาวกว่าและมีโอกาสถูกกฎอื่นกินซ้ำ
     priority = 10
 
     pattern = re.compile(
-        rf"""
-        {NEVER_MATCH}    # TODO: แทนด้วย pattern จริง
+        r"""
+        (?<!\d)                              # กันชนหน้า: ไม่ต่อจากตัวเลขอื่น (กันเคส 20 หลัก)
+        (?P<cc_number>
+            \d{4}                            # 4 หลักแรก
+            [\s-]?                           # คั่นด้วยช่องว่างหรือขีด (มีหรือไม่มีก็ได้)
+            \d{4}
+            [\s-]?
+            \d{4}
+            [\s-]?
+            \d{4}                            # 4 หลักสุดท้าย
+        )
+        (?!\d)                               # กันชนหลัง: ไม่ตามด้วยตัวเลขอื่น
         """,
         re.VERBOSE,
     )
 
+
+
     def mask(self, match: re.Match[str]) -> str:
-        # stub: ยังไม่ mask อะไร คืนของเดิมไปก่อนเพื่อให้ทีมอื่นทำงานต่อได้
-        return match.group(0)
-
-    def is_valid(self, match: re.Match[str]) -> bool:
-        return True
-
-
-def luhn_check(number: str) -> bool:
-    """ตรวจ checksum แบบ Luhn — TODO(คนที่ 2) เขียนจริงถ้าจะเก็บคะแนนโบนัส"""
-    raise NotImplementedError
+        text = match.group("cc_number")
+        return keep_last(text, 4, "*")
 
 
 __all__ = ["CreditCardRule", "keep_last", "luhn_check"]
